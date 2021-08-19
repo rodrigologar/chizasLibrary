@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collection
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            {% for book in books %}
+                    <div class="card" style="width: 20rem;">
+                        <img src="/static/images/{{ book['id'] }}.png" class="card-img-top" alt="{{ book['id'] }}">
+                        <div class="card-body">
+                            <h5 name="title" class="card-title">{{ book["title"] }}</h5>
+                            <p class="card-text">{{ book["author"] }}</p>
+                            <form action="/collection" method="post">
+                                <div class="form-group">
+                                    <input class="form-control" required value="{{ book['id'] }}" type="radio" name="id">
+                                </div>
+                                <button class="btn btn-primary" type="submit" style="margin-bottom: 2%;">Add</button>
+                            </form>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#review{{ book['id'] }}" role="button" aria-expanded="false" aria-controls="review{{ book['id'] }}">
+                                Info
+                            </a>
+                            <div class="collapse" id="review{{ book['id'] }}">
+                                <div class="card card-body" style="text-align: right;">
+                                    <p>Pages: {{ book['pages'] }}</p>
+                                    <p>ISBN: {{ book['isbn'] }}</p>
+                                    <p>Year: {{ book['year'] }}</p>
+                                    <p>Language: {{ book['language'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

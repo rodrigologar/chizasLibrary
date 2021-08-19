@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>Reading</h1>
+    <div class="container">
+        <div class="row">
+            {% if not books %}
+                <div class="col">
+                    <p class="large text-center text-muted" style="margin: 2%;">You're not currently reading any books.<br>Go to <a class="a_login" href="/collection">collection</a> to find books to read.</p>
+                </div>
+            {% endif %}
+            {% for book in books %}
+                <div class="card" style="width: 20rem;">
+                    <img src="/static/images/{{ book['id'] }}.png" class="card-img-top" alt="{{ book['id'] }}">
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ book['percent'] }}%" aria-valuenow="{{ book['percent'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p>{{ book['percent'] }}% read</p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#progress{{ book['id'] }}" role="button" aria-expanded="false" aria-controls="progress{{ book['id'] }}">
+                            Update pogress
+                        </a>
+                        <div class="collapse" id="progress{{ book['id'] }}">
+                            <div class="card card-body" style="text-align: right;">
+                                <form action="/" method="post">
+                                    <div class="form-group">
+                                        <input class="form-control" autofocus value="{{ book['pages_read'] }}" type="number" name="page" min="0" max="{{ book['pages'] }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" required value="{{ book['id'] }}" type="radio" name="id">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Update</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h1>Already read</h1>
+    <div class="container">
+        <div class="row">
+            {% if not reads %}
+                <div class="col">
+                    <p class="large text-center text-muted" style="margin: 2%;">You haven't read any books.</p>
+                </div>
+            {% endif %}
+            {% for read in reads %}
+                <div class="card" style="width: 20rem;">
+                    <img src="/static/images/{{ read['id'] }}.png" class="card-img-top" alt="{{ read['id'] }}">
+                    <div class="card-body">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

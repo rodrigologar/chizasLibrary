@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 0.1rem;
+}
+
+/* Colors for brand */
+nav .navbar-brand .c
+{
+    color: #c1e7e3;
+}
+
+nav .navbar-brand .h
+{
+    color: #c5ebfe;
+}
+
+nav .navbar-brand .i
+{
+    color: #ffdcf4;
+}
+
+nav .navbar-brand .z
+{
+    color: #dabfde;
+}
+
+nav .navbar-brand .a
+{
+    color: #aba5c4;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+.btn {
+    background-color: #aba5c4;
+    border-color: #aba5c4;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #c1e7e3;
+    border-color: #c1e7e3;
+    color: #fff;
+}
+
+.btn:focus {
+    background-color: #c1e7e3;
+    border-color: #c1e7e3;
+    color: #fff;
+}
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 0.1rem;
+}
+
+.a_login {
+    color: #aba5c4;
+}
+
+.a_login:hover {
+    color: #c1e7e3;
+    text-decoration: none;
+}
+
+.dedicatoria {
+    font-size: 2rem;
+    font-family: 'Parisienne', cursive;
+}
+
+.card {
+    margin: 1%;
+}
+
+.progress-bar {
+    background-color: #aba5c4;
+}
